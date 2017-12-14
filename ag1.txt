@@ -3,6 +3,16 @@ ag1:
 group members:
 scrum-1 -
 40623101 - button 0 ~9 clicked functions
+<<<<<<< HEAD
+
+
+
+40623103
+=======
 40623110
 40623111
+<<<<<<< HEAD
 40623112
+=======
+>>>>>>> 8dcfeb79aa486f42911bac2bc3ff25faa35fe4c4
+>>>>>>> 7259bf3639fb4ec7a262f4bf223e628a4a887bc0
