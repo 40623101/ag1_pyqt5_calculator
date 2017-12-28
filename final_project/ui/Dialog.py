@@ -4,11 +4,11 @@
 Module implementing Dialog.
 """
 
-from PyQt5.QtCore import pyqtSlot
+#from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QDialog
 
 from .Ui_Dialog import Ui_Dialog
-
+import math
 
 class Dialog(QDialog, Ui_Dialog):
     """
@@ -25,12 +25,14 @@ class Dialog(QDialog, Ui_Dialog):
         self.setupUi(self)
         '''以下為使用者自行編寫程式碼區'''
         self.display.setText('0')
+        self.pushButton_22.clicked.connect(self.pointClicked)
         self.zero.clicked.connect(self.digitClicked)
         number = [self.one, self.two, self.three, self.four, self.five, self.six, self.seven, self.eight, self.nine]
         for i in number:
             i.clicked.connect(self.digitClicked)
         self.clearAllButton.clicked.connect(self.clearAll)
         self.wait = True
+        self.waitingForOperand = True
 
     def digitClicked(self):
         '''
@@ -59,8 +61,14 @@ class Dialog(QDialog, Ui_Dialog):
         
     def pointClicked(self):
         '''小數點按下後的處理方法'''
-        pass
-        
+        #pass
+        if self.waitingForOperand:
+            self.display.setText('0')
+ 
+        if "." not in self.display.text():
+            self.display.setText(self.display.text() + ".")
+ 
+        self.waitingForOperand = False
     def changeSignClicked(self):
         '''變號鍵按下後的處理方法'''
         pass
