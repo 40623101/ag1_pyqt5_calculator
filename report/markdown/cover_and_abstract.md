@@ -6,7 +6,7 @@ title_zh: 'PyQt5 事件導向計算器'
 title_en: 'PyQt5 Event-Driven Calculator Project'
 author:
 - 設計一甲 40623101 王馨慧
-- 設計一甲 40623102 XXX
+- 設計一甲 40623102 吳柔燕
 - 設計一甲 40623103 XXX
 - 設計一甲 40623110 翁俊揚
 - 設計一甲 40623111 XXX
