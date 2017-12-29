@@ -27,12 +27,13 @@ class Dialog(QDialog, Ui_Dialog):
         self.display.setText('0')
         self.pushButton_22.clicked.connect(self.pointClicked)
         self.zero.clicked.connect(self.digitClicked)
-        number = [self.one, self.two, self.three, self.four, self.five, self.six, self.seven, self.eight, self.nine]
+        number = [self.one, self.two, self.three, self.four, \
+            self.five, self.six, self.seven, self.eight, self.nine]
         for i in number:
             i.clicked.connect(self.digitClicked)
         self.clearAllButton.clicked.connect(self.clearAll)
         self.wait = True
-        self.waitingForOperand = True
+        
 
     def digitClicked(self):
         '''
@@ -41,7 +42,15 @@ class Dialog(QDialog, Ui_Dialog):
         
         '''
         #pass
-        self.display.setText(self.display.text() + self.sender().text())
+        clickedButton = self.sender()
+        digitValue = int(clickedButton.text())
+        if self.display.text() == '0' and digitValue == 0.0:
+            return
+        if self.wait:
+            self.display.clear()
+            self.wait = False
+        
+        self.display.setText(self.display.text() + str(digitValue))
         
     def unaryOperatorClicked(self):
         '''單一運算元按下後處理方法'''
@@ -62,13 +71,14 @@ class Dialog(QDialog, Ui_Dialog):
     def pointClicked(self):
         '''小數點按下後的處理方法'''
         #pass
-        if self.waitingForOperand:
+        if self.wait:
             self.display.setText('0')
  
         if "." not in self.display.text():
             self.display.setText(self.display.text() + ".")
  
-        self.waitingForOperand = False
+        self.wait = False
+        
     def changeSignClicked(self):
         '''變號鍵按下後的處理方法'''
         pass
@@ -85,6 +95,8 @@ class Dialog(QDialog, Ui_Dialog):
         '''全部清除鍵按下後的處理方法'''
         #pass
         self.display.clear()
+        self.display.setText('0')
+        self.wait = True
         
     def clearMemory(self):
         '''清除記憶體鍵按下後的處理方法'''
