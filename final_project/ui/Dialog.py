@@ -41,11 +41,15 @@ class Dialog(QDialog, Ui_Dialog):
         plus_minus = [self.plusButton,  self.minusButton]
         for i in plus_minus:
             i.clicked.connect(self.additiveOperatorClicked)
+<<<<<<< HEAD
         self.clearMemoryButton.clicked.connect(self.clearMemory)   
         self.readMemoryButton.clicked.connect(self.readMemory)
         self.setMemoryButton.clicked.connect(self.setMemory)
         self.addToMemoryButton.clicked.connect(self.addToMemory)  
         
+=======
+        self.backspaceButton.clicked.connect(self.backspaceClicked)       
+>>>>>>> 3dcfcaa7ef38ec5abb71476d12859f7327ed6f73
  
         self.wait = True
 
@@ -122,7 +126,16 @@ class Dialog(QDialog, Ui_Dialog):
         
     def backspaceClicked(self):
         '''回復鍵按下的處理方法'''
-        pass
+        #pass
+        if self.wait:
+            return
+ 
+        text = self.display.text()[:-1]
+        if not text:
+            text = ''
+            self.wait = True
+ 
+        self.display.setText(text)
         
     def clear(self):
         '''清除鍵按下後的處理方法'''
