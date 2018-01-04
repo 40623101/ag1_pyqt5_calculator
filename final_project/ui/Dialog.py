@@ -43,6 +43,9 @@ class Dialog(QDialog, Ui_Dialog):
         for i in multiply_divide:
             i.clicked.connect(self.multiplicativeOperatorClicked)
         self.clearButton.clicked.connect(self.clear)    
+        unaryOperator = [self.squareRootButton, self.powerButton,  self.reciprocalButton ]
+        for i in unaryOperator:
+            i.clicked.connect(self.unaryOperatorClicked)    
         self.clearAllButton.clicked.connect(self.clearAll)
         self.equalButton.clicked.connect(self.equalClicked)
         self.pointButton.clicked.connect(self.pointClicked)
@@ -78,6 +81,28 @@ class Dialog(QDialog, Ui_Dialog):
         
     def unaryOperatorClicked(self):
         '''單一運算元按下後處理方法'''
+        clickedButton = self.sender()
+        clickedOperator = clickedButton.text()
+        operand = float(self.display.text())
+ 
+        if clickedOperator == "Sqrt":
+            if operand < 0.0:
+                self.abortOperation()
+                return
+ 
+            result = math.sqrt(operand)
+        elif clickedOperator == "X^2":
+            result = math.pow(operand, 2.0)
+        elif clickedOperator == "1/x":
+            if operand == 0.0:
+                self.abortOperation()
+                return
+ 
+            result = 1.0 / operand
+ 
+        self.display.setText(str(result))
+        self.wait = True
+ 
         
     def additiveOperatorClicked(self):
         '''加或減按下後進行的處理方法'''
