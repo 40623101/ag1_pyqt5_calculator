@@ -25,25 +25,28 @@ class Dialog(QDialog, Ui_Dialog):
         self.setupUi(self)
         '''以下為使用者自行編寫程式碼區'''
         self.display.setText('0')
-        self.pendingAdditiveOperator = ''
-        #self.pendingMultiplicativeOperator = ''
-        #self.sumInMemory = 0.0
-        self.sumSoFar = 0.0
-        #self.factorSoFar = 0.0
-        self.pushButton_22.clicked.connect(self.pointClicked)
         self.zero.clicked.connect(self.digitClicked)
         number = [self.one, self.two, self.three, self.four, \
-             self.five, self.six, self.seven, self.eight, self.nine]
+            self.five, self.six, self.seven, self.eight, self.nine]
         for i in number:
-              i.clicked.connect(self.digitClicked)
-        self.clearAllButton.clicked.connect(self.clearAll)
-        self.equalButton.clicked.connect(self.equalClicked)
+            i.clicked.connect(self.digitClicked)
         plus_minus = [self.plusButton,  self.minusButton]
         for i in plus_minus:
             i.clicked.connect(self.additiveOperatorClicked)
-        self.backspaceButton.clicked.connect(self.backspaceClicked)       
- 
+        multiply_divide = [self.timesButton,  self.divisionButton]
+        for i in multiply_divide:
+            i.clicked.connect(self.multiplicativeOperatorClicked)
+        self.clearAllButton.clicked.connect(self.clearAll)
+        self.equalButton.clicked.connect(self.equalClicked)
+        self.pointButton.clicked.connect(self.pointClicked)
+        self.backspaceButton.clicked.connect(self.backspaceClicked)
+        self.sumSoFar = 0.0
+        self.factorSoFar = 0.0
+        self.pendingAdditiveOperator = ''
+        self.pendingMultiplicativeOperator = ''
         self.wait = True
+        
+        #self.temp = 0
 
     def digitClicked(self):
         '''
@@ -83,8 +86,21 @@ class Dialog(QDialog, Ui_Dialog):
         self.wait = True   
     def multiplicativeOperatorClicked(self):
         '''乘或除按下後進行的處理方法'''
-        pass
-        
+         #pass
+        clickedButton = self.sender()
+        clickedOperator = clickedButton.text()
+        operand = float(self.display.text())
+        if self.pendingMultiplicativeOperator:
+            if not self.calculate(operand, self.pendingMultiplicativeOperator):
+                self.abortOperation()
+                return
+                
+            self.display.setText(str(self.factorSoFar))
+        else:
+            self.factorSoFar = operand
+            
+        self.pendingMultiplicativeOperator = clickedOperator
+        self.wait = True
     def equalClicked(self):
         '''等號按下後的處理方法'''
         #pass
@@ -110,7 +126,6 @@ class Dialog(QDialog, Ui_Dialog):
         if "." not in self.display.text():
             self.display.setText(self.display.text() + ".")
    
-        self.wait = False
         self.wait = False
         
     def changeSignClicked(self):
@@ -173,6 +188,13 @@ class Dialog(QDialog, Ui_Dialog):
  
         elif pendingOperator == "-":
             self.sumSoFar -= rightOperand
+        elif pendingOperator == "*":
+            self.factorSoFar *= rightOperand
  
+        elif pendingOperator == "/":
+            if rightOperand == 0.0:
+                return False
+                
+            self.factorSoFar /= rightOperand  
  
         return True
