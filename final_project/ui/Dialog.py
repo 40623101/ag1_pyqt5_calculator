@@ -42,6 +42,7 @@ class Dialog(QDialog, Ui_Dialog):
         multiply_divide = [self.timesButton,  self.divisionButton]
         for i in multiply_divide:
             i.clicked.connect(self.multiplicativeOperatorClicked)
+        self.clearButton.clicked.connect(self.clear)    
         self.clearAllButton.clicked.connect(self.clearAll)
         self.equalButton.clicked.connect(self.equalClicked)
         self.pointButton.clicked.connect(self.pointClicked)
@@ -156,8 +157,10 @@ class Dialog(QDialog, Ui_Dialog):
         
     def clear(self):
         '''清除鍵按下後的處理方法'''
-        pass
-        
+        if self.wait:
+            return
+        self.display.setText('0')
+        self.wait = True
     def clearAll(self):
         '''全部清除鍵按下後的處理方法'''
         #pass
