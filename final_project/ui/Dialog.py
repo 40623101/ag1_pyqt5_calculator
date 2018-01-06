@@ -48,17 +48,19 @@ class Dialog(QDialog, Ui_Dialog):
             i.clicked.connect(self.unaryOperatorClicked)    
         self.clearAllButton.clicked.connect(self.clearAll)
         self.equalButton.clicked.connect(self.equalClicked)
+        self.clearButton.clicked.connect(self.clear)
         self.pointButton.clicked.connect(self.pointClicked)
         self.backspaceButton.clicked.connect(self.backspaceClicked)
         self.sumSoFar = 0.0
         self.factorSoFar = 0.0
+        self.sumInMemory = 0.0
         self.pendingAdditiveOperator = ''
         self.pendingMultiplicativeOperator = ''
         self.clearMemoryButton.clicked.connect(self.clearMemory)   
         self.readMemoryButton.clicked.connect(self.readMemory)
         self.setMemoryButton.clicked.connect(self.setMemory)
         self.addToMemoryButton.clicked.connect(self.addToMemory)  
-        self.backspaceButton.clicked.connect(self.backspaceClicked) 
+        self.changeSignButton.clicked.connect(self.changeSignClicked)
         self.wait = True
         #self.temp = 0
 
@@ -191,31 +193,45 @@ class Dialog(QDialog, Ui_Dialog):
         
     def changeSignClicked(self):
         '''變號鍵按下後的處理方法'''
-        pass
+        #pass
+        text = self.display.text()
+        value = float(text)
+ 
+        if value > 0.0:
+            text = "-" + text
+        elif value < 0.0:
+            text = text[1:]
+ 
+        self.display.setText(text)
         
-    def backspaceClicked(self):
+    def backspaceClicked(self): 
         '''回復鍵按下的處理方法'''
         #pass
         if self.wait:
             return
- 
+            
         text = self.display.text()[:-1]
         if not text:
-            text = ''
+            text = '0'
             self.wait = True
- 
+            
         self.display.setText(text)
         
     def clear(self):
         '''清除鍵按下後的處理方法'''
+        #pass
         if self.wait:
             return
         self.display.setText('0')
         self.wait = True
+        
     def clearAll(self):
         '''全部清除鍵按下後的處理方法'''
         #pass
-        self.display.clear()
+        self.sumSoFar = 0.0
+        self.factorSoFar = 0.0
+        self.pendingAdditiveOperator = ''
+        self.pendingMultiplicativeOperator = ''
         self.display.setText('0')
         self.wait = True
         
@@ -242,12 +258,13 @@ class Dialog(QDialog, Ui_Dialog):
         
     def createButton(self):
         ''' 建立按鍵處理方法, 以 Qt Designer 建立對話框時, 不需要此方法'''
-        pass
+        #pass
         
     def abortOperation(self):
         '''中斷運算'''
-        pass
-        
+        #pass
+        self.clearAll()
+        self.display.setText("####")
     def calculate(self, rightOperand, pendingOperator):
         '''計算'''
         #pass
