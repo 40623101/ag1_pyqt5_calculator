@@ -55,6 +55,12 @@
 </v>
 </v>
 </v>
+<v t="leo.20180110215023.2" a="E"><vh>Recovered Nodes</vh>
+<v t="leo.20180110215023.3"><vh>Recovered node "摘要" from @clean cover_and_abstract.md</vh>
+<v t="leo.20180110215023.4"><vh>old:摘要</vh></v>
+<v t="leo.20180110215023.5"><vh>new:摘要</vh></v>
+</v>
+</v>
 </vnodes>
 <tnodes>
 <t tx="40323230.20170123213451.1">@language python
@@ -192,15 +198,16 @@ QLineEdit#editorLabel {
 vertical: body pane on the botton</t>
 <t tx="ahshoe.20170317115820.1">---
 abstract: |
-    這裡是摘要內容。A pipe character, followed by an indented block of text is treated as a literal block, in which newlines are preserved throughout the block, including the final newline.
+    了解fossil 與github，並運用在計算機程式上
     
-    + 以 YAML 的方式插入。
-    + The '+' indicator says to keep newlines at the end of text blocks.
-    + 使用 Markdown 語法。
-    + 前面使用加號
+    + 視窗命令列與Fossil SCM 常用指令。
+    + Python3 程式語法練習
+    + 客製化可攜環境及PyQt5 程式編寫
+    + Github 協同倉儲+ 普通計算機程式設計(採用PyQt5 與Python3 建立，採用
+事件導向的方式
     
-    本研究的重點在於 ...
----
+    
+
 
 
 </t>
@@ -221,6 +228,60 @@ abstract: |
 參考 - 詳列所引用的參考內容
 
 附錄 - 附加值得參考的詳細內容</t>
+<t tx="leo.20180110215023.2"></t>
+<t tx="leo.20180110215023.3">(uncached) ahshoe.20170317115820.1
+Diff...
+  ---
+  abstract: |
+-     了解fossil 與github，並運用在計算機程式上
++     這裡是摘要內容。A pipe character, followed by an indented block of text is treated as a literal block, in which newlines are preserved throughout the block, including the final newline.
+      
++     + 以 YAML 的方式插入。
++     + The '+' indicator says to keep newlines at the end of text blocks.
++     + 使用 Markdown 語法。
++     + 前面使用加號
+-     + 視窗命令列與Fossil SCM 常用指令。
+-     + Python3 程式語法練習
+-     + 客製化可攜環境及PyQt5 程式編寫
+-     + Github 協同倉儲+ 普通計算機程式設計(採用PyQt5 與Python3 建立，採用
+- 事件導向的方式
+      
+-     
++     本研究的重點在於 ...
++ ---
+  
+  
+- 
+</t>
+<t tx="leo.20180110215023.4">---
+abstract: |
+    這裡是摘要內容。A pipe character, followed by an indented block of text is treated as a literal block, in which newlines are preserved throughout the block, including the final newline.
+    
+    + 以 YAML 的方式插入。
+    + The '+' indicator says to keep newlines at the end of text blocks.
+    + 使用 Markdown 語法。
+    + 前面使用加號
+    
+    本研究的重點在於 ...
+---
+
+
+</t>
+<t tx="leo.20180110215023.5">---
+abstract: |
+    了解fossil 與github，並運用在計算機程式上
+    
+    + 視窗命令列與Fossil SCM 常用指令。
+    + Python3 程式語法練習
+    + 客製化可攜環境及PyQt5 程式編寫
+    + Github 協同倉儲+ 普通計算機程式設計(採用PyQt5 與Python3 建立，採用
+事件導向的方式
+    
+    
+
+
+
+</t>
 <t tx="yen.20170429103742.1"></t>
 <t tx="yen.20170429103940.1"></t>
 <t tx="yen.20170429132400.1">每一位協同人員各在 users 目錄中建立一個 .leo 檔案
@@ -233,20 +294,21 @@ abstract: |
 
 計算器程式期末報告前言
 
-@others</t>
-<t tx="yen.20170429214838.3">前言內容。
+@others
+</t>
+<t tx="yen.20170429214838.3">前言
+---
 
-\ 
 
-一個範例數學式：$$\beta=\cos^{-1}{\frac{L0^{2}+d_{AB}^{2}-R0^{2}}{2\times{L0\times{d_{AB}}}}}$$
+1. 機械設計: 經過詳細的思考，完成各個互動元件的配置，讓它展現出特定功
+能的具體規劃表達。
+2. 表達方式: 口語、文字、2D、3D、理論、實體。
+3. 創造力: 自學力、執行、想像。
 
-\ 
 
-關於數學式可以參考這裡：[http://www.hostmath.com/][]
-
-[http://www.hostmath.com/]: http://www.hostmath.com/
-
-提及了某篇刊物[@myart]在這裡。
+使用隨身碟可攜系統中的基本視窗命令提示指令元，, 編輯近端及提送到遠端，用
+eric6 的程式軟體，結合python3 與PyQt5 建立簡易的計算機，其中使用python3
+物件導向和視窗事件驅動的基本概念。
 </t>
 <t tx="yen.20170429214845.1"></t>
 <t tx="yen.20170429215041.1">可攜程式系統介紹
@@ -254,91 +316,98 @@ abstract: |
 
 可攜程式系統介紹
 
-@others</t>
+@others
+</t>
 <t tx="yen.20170429215130.1">啟動與關閉
 ---
 
-Windows 的內容
+1. start.bat 會開啟cover_and_abstract cmd exe
+2. 可以從cover_and_abstract 中修改start.bat 讓他開啟時可以一起開啟leo
+3. 從cover_and_abstract 中修改leo 讓他在start.bat 開啟時可以找到要開的檔案
+stop.bat 的作用關閉全部的檔案
 
-有一張圖片：
+Leo Editor
+---
 
-![Kmol][]
-
-稱為圖 {@fig:駱駝}。
-
-各 md 檔案可以在 images 目錄下自訂與 md 檔案名稱相同的子目錄存放影像檔案
-
-啟動與關閉2
----</t>
+1. 開啟與編輯Reveal.js 投影片
+2. 編輯Pelican 靜態blog
+3. 利用IPv4 WWW 伺服器在近端檢視Pellican Blog
+</t>
 <t tx="yen.20170429215252.1">Python 程式語法
 ===
 
 Python 程式語法
 
-@others</t>
+Python 程式語法
+---
+
+if 語句：當條件成立時執行語句塊。經常與else, elif（相當於else if）配合使用。
+
+for 語句：遍列列表、字串、字典、集合等疊代器，依次處理疊代器中的每個元素。
+
+while 語句：當條件為真時，循環執行語句塊。
+
+try 語句：與except, finally, else 配合使用處理在程式執行中出現的異常情況。
+
+class 語句：用於定義類型。
+
+def 語句：用於定義函式和類型的方法。
+
+Print 函式: 支援遞迴、預設參數值、可變參數，函式呼叫時，可以如同C 語言那樣按照位置與形參符合，也可以按照命名參數形式呼叫，param_name=value 形式的實參。在一個函式呼叫的實參表中，關鍵字引數必須出現在位置參數之後。
+
+運算:Python 使用與C、Java 類別似的運算子，支援整數與浮點數的數學運算。同時還支援複數運算與無窮位數（實際受限於電腦的能力）的整數運算。除了求絕對值函式abs() 外，大多數數學函式處於math 和cmath 模組內。
+
+@others
+</t>
 <t tx="yen.20170429215308.1">變數命名
 ---
 
-IPv4 的內容
+變數必須以英文字母大寫或小寫或底線開頭變其餘字元可以是英文大小寫字母、數字、底線變數區分英文大小寫變數不限字元長度不可使用關鍵字當變數名稱。
 
-有一張圖片：
-
-![Kmol][]
-
-稱為圖 {@fig:駱駝}。
-
-各 md 檔案可以在 images 目錄下自訂與 md 檔案名稱相同的子目錄存放影像檔案
-
-[Kmol]: ./images/kmol.png {#fig:駱駝}
+Python3 的程式關鍵字, 使用者命名變數時, 必須避開下列保留字:[“False”,”None”,”True”,”and”,”as”,”assert”,”break”, ”class”,”continue”,”def”,”del”,”elif”,”else”,”except”,“finally”,”for”,”from”,”global”,”if”,”import”,”in”, ”is”,”lambda”,”nonlocal”,”not”,”or”,”pass”,”raise”,“return”,”try”,”while”,”with”,”yield”]
 
 print 函式
 ---
+1. print( ) 為Python 程式語言中用來列印數值或字串的函式
+2. sep 變數定義分隔符號, sep 內定為“,”, end 變數則用來定義列印結尾的符號
+3. end 內定為跳行符號.
 
 重複迴圈
 ---
+用於已知重複次數的程式，配合數列。
+
+for i in number: i.clicked.connect(self.digitClicked)
 
 判斷式
 ---
+if self.display.text() == ‘0’ and digitValue == 0.0:
+    return
 
 數列
----</t>
+---
+number = [self.one, self.two, self.three, self.four, self.five, self.six, self.seven, self.eight,self.nine]
+</t>
 <t tx="yen.20170429215416.1"> PyQt5 簡介
 ===
 
 說明 PyQt5 基本架構與程式開發流程
+PyQt5 簡介
+---
 
-@others</t>
+PyQt5 是Python 語言的GUI 編程解決方案之一。可以用來代替Python 內建的
+Tkinter。其它替代者還有PyGTK、wxPython 等。與Qt 一樣，PyQt 是一個自由軟
+體。PyQt 是PyKDE 的基礎。
+
+
+@others
+</t>
 <t tx="yen.20170429215446.2">PyQt5 架構
 ---
 
-C 的內容
+大部分所見的圖形化介面程式語言都是由有物件導向的程式語言開發的，例如C+
++、Java、C#、Python 等。
 
-其中包含一個表格：
-
-Table: Python 網際框架比較 {#tbl:網際框架}
-
-| Framework | Started | Py2 | Py3 | ORM | Template Engine | Auth Moudule | Database Admin | Project Scale |
-|:---------:|:-------:|:---:|:---:|:---:|:---------------:|:------------:|:--------------:|:-------------:|
-| Pyramid | 2005 | V | V |  |  | V |  | large |
-| Django | 2006 | V | V | V | V | V | V | large |
-| Flask | 2010 | V |  |  |  |  |  | small |
-
-稱為表 {@tbl:網際框架}。
-
-Table: 價目表 {#tbl:價目表}
-
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
-
-稱為表 {@tbl:價目表}。
-
-關於表格生成可以參考這裡：[http://www.tablesgenerator.com/markdown_tables]
-
-[http://www.tablesgenerator.com/markdown_tables]: http://www.tablesgenerator.com/markdown_tables
-
+直接使用C++ 語言「寫出」圖形介面是一件滿費心的差事，因此有滿多圖形介面的函式庫(library) 可以使用，例如Qt、Tk、wxWidgets、GTK+ 等。使用簡單的函式(function) 就可創造視窗介面，並且有很多函式庫盡力克服「跨平台」的障礙。由於可以包含的部件極多，稱得上圖形介面「框架(framework)」一詞。
 </t>
 <t tx="yen.20170429215617.1">Calculator 程式
 ===
@@ -389,20 +458,39 @@ Table: 價目表 {#tbl:價目表}
 
 期末報告心得
 
-@others</t>
+@others
+</t>
 <t tx="yen.20170429220001.1">Fossil SCM
 ---
+
+40623101 王馨慧
+
+用fossil 的基本指令，去做遠端及近端的同步，還有自我管理倉儲。
 
 網誌心得
 ---
 
+40623101 王馨慧
+
+整理每周上課內容，並推送到上面，忘了還可以看，而且想改的話，隨時都可以。
+
 Github 協同倉儲
 ---
+
+40623101 王馨慧
+
+雖然同步工作很好，但同步後，不一定會很順利，如何去解決衝突，就變得很重要。
 
 學員心得
 ---
 
-說明各學員任務與執行過程</t>
+40623101 王馨慧
+
+這學期學到了很多新東西，雖然學的很辛苦，但其實它還挺有趣的，而且覺得未
+來會用到的機率很高。
+
+說明各學員任務與執行過程
+</t>
 <t tx="yen.20170429220128.1">結論
 ===
 

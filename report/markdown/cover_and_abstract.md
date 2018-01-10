@@ -18,14 +18,15 @@ date: '2017.12.18'
 
 ---
 abstract: |
-    這裡是摘要內容。A pipe character, followed by an indented block of text is treated as a literal block, in which newlines are preserved throughout the block, including the final newline.
+    了解fossil 與github，並運用在計算機程式上
     
-    + 以 YAML 的方式插入。
-    + The '+' indicator says to keep newlines at the end of text blocks.
-    + 使用 Markdown 語法。
-    + 前面使用加號
+    + 視窗命令列與Fossil SCM 常用指令。
+    + Python3 程式語法練習
+    + 客製化可攜環境及PyQt5 程式編寫
+    + Github 協同倉儲+ 普通計算機程式設計(採用PyQt5 與Python3 建立，採用
+事件導向的方式
     
-    本研究的重點在於 ...
----
+    
+
 
 
